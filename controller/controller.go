@@ -60,7 +60,7 @@ func CreateTodo(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, todo)
-	models.SendMsg()
+	//models.SendMsg()
 
 }
 
