@@ -16,7 +16,10 @@ func SetupRouter() *gin.Engine {
 	r.Static("/static", "static")
 	// 告诉gin框架去哪里找模板文件
 	//github.com/War11/Memorandum_GinandGorm.git
-	r.LoadHTMLGlob("/go/src/github.com/War11/Memorandum_GinandGorm/templates/*")
+	//r.LoadHTMLGlob("/templates/*") //go/src/github.com/War11/Memorandum_GinandGorm/
+
+	//r.LoadHTMLGlob(filepath.Join(os.Getenv("GOPATH"), "/src/github.com/War11/Memorandum_GinandGorm/templates/*"))
+	r.LoadHTMLGlob("templates/*")
 	r.GET("/", controller.IndexHandler)
 
 	// v1
@@ -30,6 +33,7 @@ func SetupRouter() *gin.Engine {
 		v1Group.PUT("/todo/:id", controller.UpdateATodo)
 
 		v1Group.DELETE("/todo/:id", controller.DeleteATodo)
+		v1Group.POST("/Teacher", controller.Teacher)
 	}
 	return r
 }
