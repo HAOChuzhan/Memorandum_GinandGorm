@@ -70,7 +70,10 @@ func GetTodoList(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{"error": err.Error()})
 	} else {
-		c.JSON(http.StatusOK, todoList)
+		c.JSON(http.StatusOK, gin.H{
+			"msg":  "获取成功！",
+			"data": todoList,
+		})
 	}
 }
 
