@@ -13,14 +13,14 @@ func SetupRouter() *gin.Engine {
 	}
 	r := gin.Default()
 	// 告诉gin框架模板文件引用的静态文件去哪里找
-	r.Static("/static", "static")
+	// r.Static("/static", "static")
 	// 告诉gin框架去哪里找模板文件
 	//github.com/War11/Memorandum_GinandGorm.git
 	//r.LoadHTMLGlob("/templates/*") //go/src/github.com/War11/Memorandum_GinandGorm/
 
 	//r.LoadHTMLGlob(filepath.Join(os.Getenv("GOPATH"), "/src/github.com/War11/Memorandum_GinandGorm/templates/*"))
-	r.LoadHTMLGlob("templates/*")
-	r.GET("/", controller.IndexHandler)
+	//r.LoadHTMLGlob("templates/*")
+	// r.GET("/", controller.IndexHandler)
 
 	// v1
 	v1Group := r.Group("v1")
